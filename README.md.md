@@ -6,15 +6,15 @@
 
 ---
 
-## 🚀 Liens utiles
+## Liens utiles
 
-- 🌐 **Page web** : ouvrir `index.html`
-- 📱 **APK** : `aquatwin-drip.apk`
-- 📄 **Mémoire** : [Memoire_d_ingenieur_Alexandre_Dahoue____.pdf](https://github.com/Alex542277/Mes_projets_de_recherche/blob/main/Memoire_d_ingenieur_Alexandre_Dahoue____.pdf)
+-  **Page web** : ouvrir `index.html`
+- **APK** : `aquatwin-drip.apk`
+-  **Mémoire** : [Memoire_d_ingenieur_Alexandre_Dahoue____.pdf](https://github.com/Alex542277/Mes_projets_de_recherche/blob/main/Memoire_d_ingenieur_Alexandre_Dahoue____.pdf)
 
 ---
 
-## 🛠️ Technologies
+##  Technologies
 
 - **MATLAB** — Solveur Richards 2D (DDFV)
 - **Python** — Moteur IA (Random Forest)
@@ -23,11 +23,8 @@
 
 ---
 
-## 👤 Auteur
+##  Auteur
 
 **Alexandre L. DAHOUE** — Élève-Ingénieur ENSGMM · Bénin  
 [Email](mailto:alexandre.dahoue@ensgmm.bj) · [LinkedIn](https://bj.linkedin.com/in/alex-dahoue-b7411536a)
 
----
-
-**Développée avec 🧡 par [Parfait BOTCHI](https://www.google.com/search?q=parfait+botchi)**
