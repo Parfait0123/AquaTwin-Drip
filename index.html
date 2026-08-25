@@ -155,6 +155,20 @@
             margin-right: auto;
         }
 
+        /* ----- LANGUE ----- */
+        .lang-fr {
+            display: inline;
+        }
+        .lang-en {
+            display: none;
+        }
+        body.lang-en .lang-fr {
+            display: none;
+        }
+        body.lang-en .lang-en {
+            display: inline;
+        }
+
         /* ----- NAV ----- */
         .nav {
             position: fixed;
@@ -198,7 +212,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 24px;
             list-style: none;
             font-size: 0.9rem;
             font-weight: 600;
@@ -209,6 +223,23 @@
             position: relative;
         }
         .nav-links a:hover {
+            color: var(--color-white);
+        }
+        .lang-toggle {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 100px;
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: var(--font-body);
+            letter-spacing: 0.04em;
+        }
+        .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.12);
             color: var(--color-white);
         }
         .nav-cta {
@@ -700,7 +731,7 @@
             letter-spacing: 0.04em;
         }
 
-        /* ----- FAQ (NEW DESIGN) ----- */
+        /* ----- FAQ ----- */
         .faq-section {
             position: relative;
             overflow: hidden;
@@ -1247,13 +1278,14 @@
                 <span>✦</span> AquaTwin·Drip
             </div>
             <ul class="nav-links">
-                <li><a href="#problem">Problème</a></li>
-                <li><a href="#how">Fonctionnement</a></li>
-                <li><a href="#app">Application</a></li>
-                <li><a href="#results">Résultats</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#cta" class="nav-cta">Essayer</a></li>
+                <li><a href="#problem"><span class="lang-fr">Problème</span><span class="lang-en">Challenge</span></a></li>
+                <li><a href="#how"><span class="lang-fr">Fonctionnement</span><span class="lang-en">How it works</span></a></li>
+                <li><a href="#app"><span class="lang-fr">Application</span><span class="lang-en">App</span></a></li>
+                <li><a href="#results"><span class="lang-fr">Résultats</span><span class="lang-en">Results</span></a></li>
+                <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
+                <li><a href="#about"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
+                <li><a href="#cta" class="nav-cta"><span class="lang-fr">Essayer</span><span class="lang-en">Try it</span></a></li>
+                <li><button class="lang-toggle" id="langToggle">EN</button></li>
             </ul>
             <button class="nav-mobile-toggle" aria-label="Menu" id="mobileToggle">
                 <span></span><span></span><span></span>
@@ -1267,26 +1299,29 @@
         <div class="hero-background-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">
-                Voir sous le sol<br />
-                pour irriguer <span class="highlight">juste</span>
+                <span class="lang-fr">Voir sous le sol<br />pour irriguer <span class="highlight">juste</span></span>
+                <span class="lang-en">See below the soil<br />to irrigate <span class="highlight">right</span></span>
             </h1>
             <p class="hero-sub">
-                AquaTwin·Drip transforme les données du sol, du climat et des cultures
-                en décisions d&rsquo;irrigation précises — sans capteurs coûteux.
+                <span class="lang-fr">AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d&rsquo;irrigation précises — sans capteurs coûteux.</span>
+                <span class="lang-en">AquaTwin·Drip turns soil, climate, and crop data into precise irrigation decisions — without costly sensors.</span>
             </p>
             <div class="hero-actions">
-                <!-- Bouton "Découvrir l'application" reste #app (scroll vers section App) -->
                 <a href="#app" class="btn-primary">
-                    <i class="fas fa-arrow-right"></i> Découvrir l&rsquo;application
+                    <i class="fas fa-arrow-right"></i>
+                    <span class="lang-fr">Découvrir l&rsquo;application</span>
+                    <span class="lang-en">Discover the app</span>
                 </a>
                 <a href="#how" class="btn-secondary">
-                    <i class="fas fa-play-circle"></i> Comment ça marche
+                    <i class="fas fa-play-circle"></i>
+                    <span class="lang-fr">Comment ça marche</span>
+                    <span class="lang-en">How it works</span>
                 </a>
             </div>
             <div class="hero-meta">
-                <span class="hero-meta-item"><i class="fas fa-cloud-sun"></i> Données météo en temps réel</span>
-                <span class="hero-meta-item"><i class="fas fa-microchip"></i> IA frugale embarquée</span>
-                <span class="hero-meta-item"><i class="fas fa-mobile-screen"></i> Application mobile</span>
+                <span class="hero-meta-item"><i class="fas fa-cloud-sun"></i> <span class="lang-fr">Données météo en temps réel</span><span class="lang-en">Real-time weather data</span></span>
+                <span class="hero-meta-item"><i class="fas fa-microchip"></i> <span class="lang-fr">IA frugale embarquée</span><span class="lang-en">Frugal AI onboard</span></span>
+                <span class="hero-meta-item"><i class="fas fa-mobile-screen"></i> <span class="lang-fr">Application mobile</span><span class="lang-en">Mobile app</span></span>
             </div>
         </div>
     </section>
@@ -1296,23 +1331,23 @@
         <div class="container">
             <div class="problem-grid">
                 <div>
-                    <span class="badge">Le défi</span>
+                    <span class="badge"><span class="lang-fr">Le défi</span><span class="lang-en">The challenge</span></span>
                     <h2 class="section-title">
-                        L&rsquo;irrigation, un pari <span class="highlight">sous terre</span>
+                        <span class="lang-fr">L&rsquo;irrigation, un pari <span class="highlight">sous terre</span></span>
+                        <span class="lang-en">Irrigation, a bet <span class="highlight">underground</span></span>
                     </h2>
                     <p class="section-sub">
-                        Au Bénin et en Afrique subsaharienne, les décisions d&rsquo;irrigation reposent
-                        souvent sur l&rsquo;expérience — pas sur les données. Résultat&nbsp;: une eau
-                        précieuse est gaspillée, et les rendements restent incertains.
+                        <span class="lang-fr">Au Bénin et en Afrique subsaharienne, les décisions d&rsquo;irrigation reposent souvent sur l&rsquo;expérience — pas sur les données. Résultat&nbsp;: une eau précieuse est gaspillée, et les rendements restent incertains.</span>
+                        <span class="lang-en">In Benin and sub-Saharan Africa, irrigation decisions are often based on experience — not data. Result: precious water is wasted, and yields remain uncertain.</span>
                     </p>
                     <div class="problem-stats">
                         <div class="stat-card">
                             <div class="stat-number">70 %</div>
-                            <div class="stat-label">de l&rsquo;eau douce mondiale utilisée par l&rsquo;agriculture</div>
+                            <div class="stat-label"><span class="lang-fr">de l&rsquo;eau douce mondiale utilisée par l&rsquo;agriculture</span><span class="lang-en">of global freshwater used by agriculture</span></div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-number">30 %</div>
-                            <div class="stat-label">d&rsquo;économie d&rsquo;eau possible avec une irrigation pilotée</div>
+                            <div class="stat-label"><span class="lang-fr">d&rsquo;économie d&rsquo;eau possible avec une irrigation pilotée</span><span class="lang-en">water savings possible with smart irrigation</span></div>
                         </div>
                     </div>
                 </div>
@@ -1327,40 +1362,41 @@
     <section class="section-light section-padding" id="invisible">
         <div class="container">
             <div class="text-center">
-                <span class="badge">Ce qui change</span>
+                <span class="badge"><span class="lang-fr">Ce qui change</span><span class="lang-en">What changes</span></span>
                 <h2 class="section-title">
-                    Rendre <span class="highlight">l&rsquo;invisible</span> visible
+                    <span class="lang-fr">Rendre <span class="highlight">l&rsquo;invisible</span> visible</span>
+                    <span class="lang-en">Making the <span class="highlight">invisible</span> visible</span>
                 </h2>
                 <p class="section-sub mx-auto">
-                    Sous la surface du champ se joue une dynamique complexe. AquaTwin·Drip
-                    la capture et la traduit en informations claires.
+                    <span class="lang-fr">Sous la surface du champ se joue une dynamique complexe. AquaTwin·Drip la capture et la traduit en informations claires.</span>
+                    <span class="lang-en">Beneath the field's surface, a complex dynamic unfolds. AquaTwin·Drip captures it and translates it into clear information.</span>
                 </p>
             </div>
             <div class="invisible-grid">
                 <div class="invisible-step">
                     <i class="fas fa-seedling icon"></i>
-                    <h4>Champ</h4>
-                    <p>Observations</p>
+                    <h4><span class="lang-fr">Champ</span><span class="lang-en">Field</span></h4>
+                    <p><span class="lang-fr">Observations</span><span class="lang-en">Observations</span></p>
                 </div>
                 <div class="invisible-step">
                     <i class="fas fa-earth-europe icon"></i>
-                    <h4>Sol</h4>
-                    <p>Propriétés hydriques</p>
+                    <h4><span class="lang-fr">Sol</span><span class="lang-en">Soil</span></h4>
+                    <p><span class="lang-fr">Propriétés hydriques</span><span class="lang-en">Hydraulic properties</span></p>
                 </div>
                 <div class="invisible-step">
                     <i class="fas fa-water icon"></i>
-                    <h4>Eau</h4>
-                    <p>Infiltration &amp; redistribution</p>
+                    <h4><span class="lang-fr">Eau</span><span class="lang-en">Water</span></h4>
+                    <p><span class="lang-fr">Infiltration &amp; redistribution</span><span class="lang-en">Infiltration &amp; redistribution</span></p>
                 </div>
                 <div class="invisible-step">
                     <i class="fas fa-plant-wilt icon"></i>
-                    <h4>Racines</h4>
-                    <p>Absorption &amp; stress</p>
+                    <h4><span class="lang-fr">Racines</span><span class="lang-en">Roots</span></h4>
+                    <p><span class="lang-fr">Absorption &amp; stress</span><span class="lang-en">Uptake &amp; stress</span></p>
                 </div>
                 <div class="invisible-step">
                     <i class="fas fa-brain icon"></i>
-                    <h4>Décision</h4>
-                    <p>Irrigation pilotée</p>
+                    <h4><span class="lang-fr">Décision</span><span class="lang-en">Decision</span></h4>
+                    <p><span class="lang-fr">Irrigation pilotée</span><span class="lang-en">Smart irrigation</span></p>
                 </div>
             </div>
         </div>
@@ -1371,31 +1407,31 @@
         <div class="container">
             <div class="aquatwin-grid">
                 <div>
-                    <span class="badge">La solution</span>
+                    <span class="badge"><span class="lang-fr">La solution</span><span class="lang-en">The solution</span></span>
                     <h2 class="section-title">
-                        AquaTwin·Drip<br />
-                        <span class="highlight">le jumeau numérique</span>
+                        <span class="lang-fr">AquaTwin·Drip<br /><span class="highlight">le jumeau numérique</span></span>
+                        <span class="lang-en">AquaTwin·Drip<br /><span class="highlight">the digital twin</span></span>
                     </h2>
                     <p class="section-sub">
-                        Une réplique virtuelle de votre parcelle qui simule en temps réel
-                        les interactions entre le sol, l&rsquo;eau, les racines et l&rsquo;atmosphère.
+                        <span class="lang-fr">Une réplique virtuelle de votre parcelle qui simule en temps réel les interactions entre le sol, l&rsquo;eau, les racines et l&rsquo;atmosphère.</span>
+                        <span class="lang-en">A virtual replica of your field that simulates in real time the interactions between soil, water, roots and atmosphere.</span>
                     </p>
                     <ul style="margin-top:24px; list-style:none; display:flex; flex-direction:column; gap:14px;">
                         <li style="display:flex; align-items:flex-start; gap:14px; font-weight:500; color:var(--color-text-secondary);">
                             <i class="fas fa-check-circle" style="color:var(--color-cyan); font-size:1.3rem; margin-top:2px;"></i>
-                            <span>Modélisation hydrique 2D axisymétrique (équation de Richards)</span>
+                            <span><span class="lang-fr">Modélisation hydrique 2D axisymétrique (équation de Richards)</span><span class="lang-en">2D axisymmetric hydraulic modeling (Richards equation)</span></span>
                         </li>
                         <li style="display:flex; align-items:flex-start; gap:14px; font-weight:500; color:var(--color-text-secondary);">
                             <i class="fas fa-check-circle" style="color:var(--color-cyan); font-size:1.3rem; margin-top:2px;"></i>
-                            <span>Croissance des cultures pilotée par l&rsquo;eau (AquaCrop FAO)</span>
+                            <span><span class="lang-fr">Croissance des cultures pilotée par l&rsquo;eau (AquaCrop FAO)</span><span class="lang-en">Water-driven crop growth (AquaCrop FAO)</span></span>
                         </li>
                         <li style="display:flex; align-items:flex-start; gap:14px; font-weight:500; color:var(--color-text-secondary);">
                             <i class="fas fa-check-circle" style="color:var(--color-cyan); font-size:1.3rem; margin-top:2px;"></i>
-                            <span>IA frugale (Random Forest) pour prévoir l&rsquo;évapotranspiration</span>
+                            <span><span class="lang-fr">IA frugale (Random Forest) pour prévoir l&rsquo;évapotranspiration</span><span class="lang-en">Frugal AI (Random Forest) for evapotranspiration forecasting</span></span>
                         </li>
                         <li style="display:flex; align-items:flex-start; gap:14px; font-weight:500; color:var(--color-text-secondary);">
                             <i class="fas fa-check-circle" style="color:var(--color-cyan); font-size:1.3rem; margin-top:2px;"></i>
-                            <span>Données globales (Open-Meteo, SoilGrids, NASA POWER) sans capteurs</span>
+                            <span><span class="lang-fr">Données globales (Open-Meteo, SoilGrids, NASA POWER) sans capteurs</span><span class="lang-en">Global data (Open-Meteo, SoilGrids, NASA POWER) without sensors</span></span>
                         </li>
                     </ul>
                 </div>
@@ -1410,44 +1446,46 @@
     <section class="section-light section-padding" id="how">
         <div class="container">
             <div class="text-center">
-                <span class="badge">En 5 étapes</span>
+                <span class="badge"><span class="lang-fr">En 5 étapes</span><span class="lang-en">In 5 steps</span></span>
                 <h2 class="section-title">
-                    Comment <span class="highlight">ça marche</span>
+                    <span class="lang-fr">Comment <span class="highlight">ça marche</span></span>
+                    <span class="lang-en">How <span class="highlight">it works</span></span>
                 </h2>
                 <p class="section-sub mx-auto">
-                    Du champ à la décision, AquaTwin·Drip suit un chemin simple et puissant.
+                    <span class="lang-fr">Du champ à la décision, AquaTwin·Drip suit un chemin simple et puissant.</span>
+                    <span class="lang-en">From field to decision, AquaTwin·Drip follows a simple and powerful path.</span>
                 </p>
             </div>
             <div class="steps-grid">
                 <div class="step-card">
                     <i class="fas fa-map-pin step-icon"></i>
-                    <div class="step-title">Le terrain</div>
-                    <div class="step-desc">Le système rassemble les données météo, le type de sol et la culture via des sources globales accessibles.</div>
+                    <div class="step-title"><span class="lang-fr">Le terrain</span><span class="lang-en">The field</span></div>
+                    <div class="step-desc"><span class="lang-fr">Le système rassemble les données météo, le type de sol et la culture via des sources globales accessibles.</span><span class="lang-en">The system collects weather, soil and crop data from accessible global sources.</span></div>
                     <div class="step-tech">Open-Meteo · SoilGrids · NASA POWER</div>
                 </div>
                 <div class="step-card">
                     <i class="fas fa-layer-group step-icon"></i>
-                    <div class="step-title">Le sol</div>
-                    <div class="step-desc">Un modèle physique 2D simule la circulation de l&rsquo;eau dans le sol et la formation du bulbe d&rsquo;humectation.</div>
-                    <div class="step-tech">Équation de Richards · DDFV</div>
+                    <div class="step-title"><span class="lang-fr">Le sol</span><span class="lang-en">The soil</span></div>
+                    <div class="step-desc"><span class="lang-fr">Un modèle physique 2D simule la circulation de l&rsquo;eau dans le sol et la formation du bulbe d&rsquo;humectation.</span><span class="lang-en">A 2D physical model simulates water flow and the wetting bulb formation.</span></div>
+                    <div class="step-tech"><span class="lang-fr">Équation de Richards · DDFV</span><span class="lang-en">Richards equation · DDFV</span></div>
                 </div>
                 <div class="step-card">
                     <i class="fas fa-leaf step-icon"></i>
-                    <div class="step-title">La culture</div>
-                    <div class="step-desc">AquaCrop calcule la croissance, la transpiration et le stress hydrique en fonction de l&rsquo;eau disponible.</div>
-                    <div class="step-tech">AquaCrop FAO · water-driven</div>
+                    <div class="step-title"><span class="lang-fr">La culture</span><span class="lang-en">The crop</span></div>
+                    <div class="step-desc"><span class="lang-fr">AquaCrop calcule la croissance, la transpiration et le stress hydrique en fonction de l&rsquo;eau disponible.</span><span class="lang-en">AquaCrop computes growth, transpiration and water stress based on available water.</span></div>
+                    <div class="step-tech">AquaCrop FAO · <span class="lang-fr">water-driven</span><span class="lang-en">water-driven</span></div>
                 </div>
                 <div class="step-card">
                     <i class="fas fa-chart-pie step-icon"></i>
-                    <div class="step-title">Les scénarios</div>
-                    <div class="step-desc">Le moteur IA explore différentes situations — sécheresse, irrigation réduite, stratégies alternatives.</div>
+                    <div class="step-title"><span class="lang-fr">Les scénarios</span><span class="lang-en">Scenarios</span></div>
+                    <div class="step-desc"><span class="lang-fr">Le moteur IA explore différentes situations — sécheresse, irrigation réduite, stratégies alternatives.</span><span class="lang-en">The AI engine explores different situations — drought, reduced irrigation, alternative strategies.</span></div>
                     <div class="step-tech">Random Forest · OptimalHarvest</div>
                 </div>
                 <div class="step-card">
                     <i class="fas fa-check-double step-icon"></i>
-                    <div class="step-title">La décision</div>
-                    <div class="step-desc">Les résultats sont traduits en recommandation d&rsquo;irrigation simple, directement utilisable sur le terrain.</div>
-                    <div class="step-tech">Application mobile · API</div>
+                    <div class="step-title"><span class="lang-fr">La décision</span><span class="lang-en">The decision</span></div>
+                    <div class="step-desc"><span class="lang-fr">Les résultats sont traduits en recommandation d&rsquo;irrigation simple, directement utilisable sur le terrain.</span><span class="lang-en">Results are translated into a simple irrigation recommendation, ready to use in the field.</span></div>
+                    <div class="step-tech"><span class="lang-fr">Application mobile · API</span><span class="lang-en">Mobile app · API</span></div>
                 </div>
             </div>
         </div>
@@ -1457,13 +1495,14 @@
     <section class="section-modern section-padding" id="twin">
         <div class="container">
             <div class="text-center">
-                <span class="badge">Le cœur du système</span>
+                <span class="badge"><span class="lang-fr">Le cœur du système</span><span class="lang-en">The system's heart</span></span>
                 <h2 class="section-title">
-                    Le jumeau numérique <span class="highlight">en action</span>
+                    <span class="lang-fr">Le jumeau numérique <span class="highlight">en action</span></span>
+                    <span class="lang-en">The digital twin <span class="highlight">in action</span></span>
                 </h2>
                 <p class="section-sub mx-auto">
-                    Chaque jour, le système simule l&rsquo;évolution de l&rsquo;eau dans le sol et
-                    la réponse de la culture pour ajuster l&rsquo;irrigation en continu.
+                    <span class="lang-fr">Chaque jour, le système simule l&rsquo;évolution de l&rsquo;eau dans le sol et la réponse de la culture pour ajuster l&rsquo;irrigation en continu.</span>
+                    <span class="lang-en">Every day, the system simulates water evolution in the soil and crop response to continuously adjust irrigation.</span>
                 </p>
             </div>
             <div class="twin-image">
@@ -1476,30 +1515,31 @@
     <section class="section-light section-padding" id="scenarios">
         <div class="container">
             <div class="text-center">
-                <span class="badge">Et si…</span>
+                <span class="badge"><span class="lang-fr">Et si…</span><span class="lang-en">What if…</span></span>
                 <h2 class="section-title">
-                    Explorer <span class="highlight">l&rsquo;avenir</span> du champ
+                    <span class="lang-fr">Explorer <span class="highlight">l&rsquo;avenir</span> du champ</span>
+                    <span class="lang-en">Explore the <span class="highlight">future</span> of the field</span>
                 </h2>
                 <p class="section-sub mx-auto">
-                    Avec AquaTwin·Drip, vous pouvez simuler des scénarios avant de prendre
-                    une décision — et voir les conséquences sur le rendement.
+                    <span class="lang-fr">Avec AquaTwin·Drip, vous pouvez simuler des scénarios avant de prendre une décision — et voir les conséquences sur le rendement.</span>
+                    <span class="lang-en">With AquaTwin·Drip, you can simulate scenarios before making a decision — and see the impact on yield.</span>
                 </p>
             </div>
             <div class="scenario-cards">
                 <div class="scenario-card">
                     <i class="fas fa-cloud-rain icon"></i>
-                    <div class="scenario-title">Sécheresse annoncée</div>
-                    <div class="scenario-desc">Que se passe-t-il si les précipitations diminuent de 30 % sur les deux prochaines semaines ? Le système anticipe l&rsquo;impact sur le stress hydrique.</div>
+                    <div class="scenario-title"><span class="lang-fr">Sécheresse annoncée</span><span class="lang-en">Drought forecast</span></div>
+                    <div class="scenario-desc"><span class="lang-fr">Que se passe-t-il si les précipitations diminuent de 30 % sur les deux prochaines semaines ? Le système anticipe l&rsquo;impact sur le stress hydrique.</span><span class="lang-en">What if rainfall drops by 30% over the next two weeks? The system anticipates the impact on water stress.</span></div>
                 </div>
                 <div class="scenario-card">
                     <i class="fas fa-tint icon"></i>
-                    <div class="scenario-title">Réduction d&rsquo;irrigation</div>
-                    <div class="scenario-desc">Et si je réduis l&rsquo;irrigation de 20 % ? Le modèle calcule la perte de rendement et le gain en eau économisé.</div>
+                    <div class="scenario-title"><span class="lang-fr">Réduction d&rsquo;irrigation</span><span class="lang-en">Reduced irrigation</span></div>
+                    <div class="scenario-desc"><span class="lang-fr">Et si je réduis l&rsquo;irrigation de 20 % ? Le modèle calcule la perte de rendement et le gain en eau économisé.</span><span class="lang-en">What if I cut irrigation by 20%? The model calculates yield loss and water savings.</span></div>
                 </div>
                 <div class="scenario-card">
                     <i class="fas fa-chart-line icon"></i>
-                    <div class="scenario-title">Stratégie optimale</div>
-                    <div class="scenario-desc">Quelle stratégie d&rsquo;irrigation maximise la production tout en minimisant la consommation d&rsquo;eau ? L&rsquo;IA explore les combinaisons.</div>
+                    <div class="scenario-title"><span class="lang-fr">Stratégie optimale</span><span class="lang-en">Optimal strategy</span></div>
+                    <div class="scenario-desc"><span class="lang-fr">Quelle stratégie d&rsquo;irrigation maximise la production tout en minimisant la consommation d&rsquo;eau ? L&rsquo;IA explore les combinaisons.</span><span class="lang-en">Which irrigation strategy maximizes yield while minimizing water use? The AI explores combinations.</span></div>
                 </div>
             </div>
         </div>
@@ -1510,20 +1550,20 @@
         <div class="container">
             <div class="app-grid">
                 <div class="app-text-content">
-                    <span class="badge">Produit</span>
+                    <span class="badge"><span class="lang-fr">Produit</span><span class="lang-en">Product</span></span>
                     <h2 class="section-title">
-                        Une application <span class="highlight">mobile</span> pour chaque agriculteur
+                        <span class="lang-fr">Une application <span class="highlight">mobile</span> pour chaque agriculteur</span>
+                        <span class="lang-en">A <span class="highlight">mobile</span> app for every farmer</span>
                     </h2>
                     <p class="section-sub">
-                        AquaTwin·Drip se vit dans une application simple et intuitive.
-                        Tableau de bord, historique, prévisions, recommandations — tout est conçu
-                        pour une décision rapide.
+                        <span class="lang-fr">AquaTwin·Drip se vit dans une application simple et intuitive. Tableau de bord, historique, prévisions, recommandations — tout est conçu pour une décision rapide.</span>
+                        <span class="lang-en">AquaTwin·Drip comes as a simple, intuitive app. Dashboard, history, forecasts, recommendations — all designed for quick decisions.</span>
                     </p>
                     <div class="app-features-list">
-                        <span class="app-feature-tag"><i class="fas fa-table-columns"></i> Tableau de bord</span>
-                        <span class="app-feature-tag"><i class="fas fa-clock"></i> Historique</span>
-                        <span class="app-feature-tag"><i class="fas fa-cloud-sun"></i> Prévisions</span>
-                        <span class="app-feature-tag"><i class="fas fa-gear"></i> Configuration</span>
+                        <span class="app-feature-tag"><i class="fas fa-table-columns"></i> <span class="lang-fr">Tableau de bord</span><span class="lang-en">Dashboard</span></span>
+                        <span class="app-feature-tag"><i class="fas fa-clock"></i> <span class="lang-fr">Historique</span><span class="lang-en">History</span></span>
+                        <span class="app-feature-tag"><i class="fas fa-cloud-sun"></i> <span class="lang-fr">Prévisions</span><span class="lang-en">Forecasts</span></span>
+                        <span class="app-feature-tag"><i class="fas fa-gear"></i> <span class="lang-fr">Configuration</span><span class="lang-en">Settings</span></span>
                     </div>
                 </div>
                 <div style="display:flex; justify-content:center;">
@@ -1532,10 +1572,11 @@
                     </div>
                 </div>
             </div>
-            <!-- Bouton "Découvrir l'application" ici également reste #app (scroll vers section App) -->
             <div style="text-align:center; margin-top:30px;">
                 <a href="#app" class="btn-primary">
-                    <i class="fas fa-arrow-right"></i> Découvrir l&rsquo;application
+                    <i class="fas fa-arrow-right"></i>
+                    <span class="lang-fr">Découvrir l&rsquo;application</span>
+                    <span class="lang-en">Discover the app</span>
                 </a>
             </div>
         </div>
@@ -1545,39 +1586,40 @@
     <section class="section-light section-padding" id="results">
         <div class="container">
             <div class="text-center">
-                <span class="badge">Validation</span>
+                <span class="badge"><span class="lang-fr">Validation</span><span class="lang-en">Validation</span></span>
                 <h2 class="section-title">
-                    Des résultats <span class="highlight">concrets</span>
+                    <span class="lang-fr">Des résultats <span class="highlight">concrets</span></span>
+                    <span class="lang-en">Real <span class="highlight">results</span></span>
                 </h2>
                 <p class="section-sub mx-auto">
-                    AquaTwin·Drip a été confronté à des simulations de référence.
-                    Voici ce que les données montrent.
+                    <span class="lang-fr">AquaTwin·Drip a été confronté à des simulations de référence. Voici ce que les données montrent.</span>
+                    <span class="lang-en">AquaTwin·Drip has been compared to reference simulations. Here is what the data shows.</span>
                 </p>
             </div>
             <div class="results-grid">
                 <div class="result-card">
                     <div class="result-number">0,0408</div>
                     <div class="result-label">RMSE vs HYDRUS</div>
-                    <div class="result-interp">L&rsquo;écart entre AquaTwin·Drip et le logiciel de référence est inférieur à 5 % — une précision remarquable.</div>
-                    <div class="result-detail">Teneur en eau volumique (m³/m³)</div>
+                    <div class="result-interp"><span class="lang-fr">L&rsquo;écart entre AquaTwin·Drip et le logiciel de référence est inférieur à 5 % — une précision remarquable.</span><span class="lang-en">The gap between AquaTwin·Drip and the reference software is below 5% — remarkable accuracy.</span></div>
+                    <div class="result-detail"><span class="lang-fr">Teneur en eau volumique (m³/m³)</span><span class="lang-en">Volumetric water content (m³/m³)</span></div>
                 </div>
                 <div class="result-card">
                     <div class="result-number gold">0,88</div>
-                    <div class="result-label">R² de prédiction ETo</div>
-                    <div class="result-interp">Le modèle Random Forest explique 88 % de la variabilité de l&rsquo;évapotranspiration de référence.</div>
+                    <div class="result-label"><span class="lang-fr">R² de prédiction ETo</span><span class="lang-en">R² ETo prediction</span></div>
+                    <div class="result-interp"><span class="lang-fr">Le modèle Random Forest explique 88 % de la variabilité de l&rsquo;évapotranspiration de référence.</span><span class="lang-en">The Random Forest model explains 88% of the reference evapotranspiration variability.</span></div>
                     <div class="result-detail">Random Forest · NASA POWER</div>
                 </div>
                 <div class="result-card">
                     <div class="result-number green">~92 %</div>
-                    <div class="result-label">Précision de prédiction</div>
-                    <div class="result-interp">L&rsquo;intelligence artificielle frugale anticipe les besoins en eau avec une marge d&rsquo;erreur inférieure à 0,7 mm/jour.</div>
+                    <div class="result-label"><span class="lang-fr">Précision de prédiction</span><span class="lang-en">Prediction accuracy</span></div>
+                    <div class="result-interp"><span class="lang-fr">L&rsquo;intelligence artificielle frugale anticipe les besoins en eau avec une marge d&rsquo;erreur inférieure à 0,7 mm/jour.</span><span class="lang-en">The frugal AI predicts water needs with an error margin below 0.7 mm/day.</span></div>
                     <div class="result-detail">MAE = 0,58 mm/j · RMSE = 0,68 mm/j</div>
                 </div>
                 <div class="result-card">
                     <div class="result-number">✓</div>
-                    <div class="result-label">Validation opérationnelle</div>
-                    <div class="result-interp">Le solveur Richards 2D, le couplage AquaCrop et le moteur IA sont pleinement opérationnels et convergents.</div>
-                    <div class="result-detail">Tests réalisés sur maïs, tomate, coton</div>
+                    <div class="result-label"><span class="lang-fr">Validation opérationnelle</span><span class="lang-en">Operational validation</span></div>
+                    <div class="result-interp"><span class="lang-fr">Le solveur Richards 2D, le couplage AquaCrop et le moteur IA sont pleinement opérationnels et convergents.</span><span class="lang-en">The 2D Richards solver, AquaCrop coupling and AI engine are fully operational and convergent.</span></div>
+                    <div class="result-detail"><span class="lang-fr">Tests réalisés sur maïs, tomate, coton</span><span class="lang-en">Tests on maize, tomato, cotton</span></div>
                 </div>
             </div>
         </div>
@@ -1587,14 +1629,15 @@
     <section class="section-modern section-padding faq-section" id="faq">
         <div class="container">
             <div class="text-center">
-                <span class="badge">Questions fréquentes</span>
+                <span class="badge"><span class="lang-fr">Questions fréquentes</span><span class="lang-en">Frequently asked questions</span></span>
                 <span class="faq-header-icon"><i class="fas fa-circle-question"></i></span>
                 <h2 class="section-title">
-                    Vous avez des <span class="highlight">questions</span> ?
+                    <span class="lang-fr">Vous avez des <span class="highlight">questions</span> ?</span>
+                    <span class="lang-en">Got <span class="highlight">questions</span> ?</span>
                 </h2>
                 <p class="section-sub mx-auto">
-                    Nous avons rassemblé les réponses aux interrogations les plus courantes
-                    sur AquaTwin·Drip.
+                    <span class="lang-fr">Nous avons rassemblé les réponses aux interrogations les plus courantes sur AquaTwin·Drip.</span>
+                    <span class="lang-en">We've gathered answers to the most common questions about AquaTwin·Drip.</span>
                 </p>
             </div>
 
@@ -1603,11 +1646,12 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="q-icon">?</span>
-                        <h4>Pourquoi l&rsquo;irrigation goutte-à-goutte a-t-elle besoin d&rsquo;un jumeau numérique ?</h4>
+                        <h4><span class="lang-fr">Pourquoi l&rsquo;irrigation goutte-à-goutte a-t-elle besoin d&rsquo;un jumeau numérique ?</span><span class="lang-en">Why does drip irrigation need a digital twin?</span></h4>
                         <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>L&rsquo;irrigation goutte-à-goutte crée des bulbes d&rsquo;humidité localisés sous chaque goutteur. Les modèles agronomiques classiques, comme AquaCrop, ne peuvent pas simuler cette distribution hétérogène de l&rsquo;eau dans le sol. Un jumeau numérique couplé à un modèle physique 2D permet de représenter fidèlement ce phénomène et d&rsquo;ajuster les apports en eau avec précision.</p>
+                        <p><span class="lang-fr">L&rsquo;irrigation goutte-à-goutte crée des bulbes d&rsquo;humidité localisés sous chaque goutteur. Les modèles agronomiques classiques, comme AquaCrop, ne peuvent pas simuler cette distribution hétérogène de l&rsquo;eau dans le sol. Un jumeau numérique couplé à un modèle physique 2D permet de représenter fidèlement ce phénomène et d&rsquo;ajuster les apports en eau avec précision.</span>
+                        <span class="lang-en">Drip irrigation creates localized moisture bulbs under each emitter. Classic agronomic models like AquaCrop cannot simulate this heterogeneous water distribution. A digital twin coupled with a 2D physical model faithfully represents this phenomenon and adjusts water supply with precision.</span></p>
                     </div>
                 </div>
 
@@ -1615,11 +1659,12 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="q-icon">?</span>
-                        <h4>Comment AquaTwin·Drip fonctionne-t-il sans capteurs coûteux ?</h4>
+                        <h4><span class="lang-fr">Comment AquaTwin·Drip fonctionne-t-il sans capteurs coûteux ?</span><span class="lang-en">How does AquaTwin·Drip work without costly sensors?</span></h4>
                         <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Le système s&rsquo;appuie sur des données globales accessibles gratuitement : Open-Meteo pour les prévisions météo, SoilGrids pour les propriétés des sols, et NASA POWER pour les données climatiques historiques. Il n&rsquo;est donc pas nécessaire d&rsquo;installer des capteurs physiques sur le terrain, ce qui rend la solution accessible et économique.</p>
+                        <p><span class="lang-fr">Le système s&rsquo;appuie sur des données globales accessibles gratuitement : Open-Meteo pour les prévisions météo, SoilGrids pour les propriétés des sols, et NASA POWER pour les données climatiques historiques. Il n&rsquo;est donc pas nécessaire d&rsquo;installer des capteurs physiques sur le terrain, ce qui rend la solution accessible et économique.</span>
+                        <span class="lang-en">The system relies on freely available global data: Open-Meteo for weather forecasts, SoilGrids for soil properties, and NASA POWER for historical climate data. No physical sensors are needed on the field, making the solution accessible and cost-effective.</span></p>
                     </div>
                 </div>
 
@@ -1627,11 +1672,12 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="q-icon">?</span>
-                        <h4>Qu&rsquo;est-ce que le &quot;bulbe d&rsquo;humectation&quot; et pourquoi est-il important ?</h4>
+                        <h4><span class="lang-fr">Qu&rsquo;est-ce que le &quot;bulbe d&rsquo;humectation&quot; et pourquoi est-il important ?</span><span class="lang-en">What is the "wetting bulb" and why is it important?</span></h4>
                         <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Le bulbe d&rsquo;humectation est la zone d&rsquo;humidité localisée qui se forme autour du goutteur lorsque l&rsquo;eau s&rsquo;infiltre dans le sol. Sa forme et sa taille déterminent la quantité d&rsquo;eau disponible pour les racines. Une mauvaise gestion du bulbe peut entraîner un stress hydrique ou un gaspillage d&rsquo;eau. AquaTwin·Drip simule ce bulbe en 2D pour optimiser chaque irrigation.</p>
+                        <p><span class="lang-fr">Le bulbe d&rsquo;humectation est la zone d&rsquo;humidité localisée qui se forme autour du goutteur lorsque l&rsquo;eau s&rsquo;infiltre dans le sol. Sa forme et sa taille déterminent la quantité d&rsquo;eau disponible pour les racines. Une mauvaise gestion du bulbe peut entraîner un stress hydrique ou un gaspillage d&rsquo;eau. AquaTwin·Drip simule ce bulbe en 2D pour optimiser chaque irrigation.</span>
+                        <span class="lang-en">The wetting bulb is the localized moisture zone that forms around the emitter as water infiltrates the soil. Its shape and size determine the water available to roots. Poor management can lead to water stress or waste. AquaTwin·Drip simulates this bulb in 2D to optimize every irrigation.</span></p>
                     </div>
                 </div>
 
@@ -1639,11 +1685,12 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="q-icon">?</span>
-                        <h4>Quelles cultures puis-je gérer avec AquaTwin·Drip ?</h4>
+                        <h4><span class="lang-fr">Quelles cultures puis-je gérer avec AquaTwin·Drip ?</span><span class="lang-en">Which crops can I manage with AquaTwin·Drip?</span></h4>
                         <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>AquaTwin·Drip est conçu pour s&rsquo;adapter à une large gamme de cultures : maïs, tomate, coton, et bien d&rsquo;autres. Le modèle AquaCrop intègre les paramètres spécifiques à chaque culture (productivité de l&rsquo;eau, indice de récolte, durée du cycle), ce qui permet des simulations personnalisées.</p>
+                        <p><span class="lang-fr">AquaTwin·Drip est conçu pour s&rsquo;adapter à une large gamme de cultures : maïs, tomate, coton, et bien d&rsquo;autres. Le modèle AquaCrop intègre les paramètres spécifiques à chaque culture (productivité de l&rsquo;eau, indice de récolte, durée du cycle), ce qui permet des simulations personnalisées.</span>
+                        <span class="lang-en">AquaTwin·Drip is designed for a wide range of crops: maize, tomato, cotton, and many more. AquaCrop integrates crop-specific parameters (water productivity, harvest index, cycle length), enabling customized simulations.</span></p>
                     </div>
                 </div>
 
@@ -1651,11 +1698,12 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="q-icon">?</span>
-                        <h4>L&rsquo;application est-elle facile à utiliser pour un agriculteur ?</h4>
+                        <h4><span class="lang-fr">L&rsquo;application est-elle facile à utiliser pour un agriculteur ?</span><span class="lang-en">Is the app easy to use for a farmer?</span></h4>
                         <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Oui ! L&rsquo;application mobile a été conçue pour être intuitive, avec un tableau de bord clair, des recommandations en langage simple et une configuration en quelques étapes. L&rsquo;utilisateur n&rsquo;a pas besoin de connaître les modèles scientifiques : il reçoit directement des conseils pratiques pour irriguer.</p>
+                        <p><span class="lang-fr">Oui ! L&rsquo;application mobile a été conçue pour être intuitive, avec un tableau de bord clair, des recommandations en langage simple et une configuration en quelques étapes. L&rsquo;utilisateur n&rsquo;a pas besoin de connaître les modèles scientifiques : il reçoit directement des conseils pratiques pour irriguer.</span>
+                        <span class="lang-en">Yes! The mobile app is designed to be intuitive, with a clear dashboard, simple-language recommendations, and step-by-step setup. Users don't need to understand the scientific models — they receive practical irrigation advice directly.</span></p>
                     </div>
                 </div>
 
@@ -1663,11 +1711,12 @@
                 <div class="faq-item">
                     <div class="faq-question">
                         <span class="q-icon">?</span>
-                        <h4>Quels résultats concrets puis-je attendre ?</h4>
+                        <h4><span class="lang-fr">Quels résultats concrets puis-je attendre ?</span><span class="lang-en">What concrete results can I expect?</span></h4>
                         <span class="toggle-icon"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Les tests de validation montrent une précision de prédiction de l&rsquo;évapotranspiration (ETo) de 88 % (R²) et une erreur quadratique moyenne de 0,0408 par rapport au logiciel de référence HYDRUS. En pratique, cela signifie une économie d&rsquo;eau potentielle de l&rsquo;ordre de 30 % et une meilleure protection des cultures contre le stress hydrique.</p>
+                        <p><span class="lang-fr">Les tests de validation montrent une précision de prédiction de l&rsquo;évapotranspiration (ETo) de 88 % (R²) et une erreur quadratique moyenne de 0,0408 par rapport au logiciel de référence HYDRUS. En pratique, cela signifie une économie d&rsquo;eau potentielle de l&rsquo;ordre de 30 % et une meilleure protection des cultures contre le stress hydrique.</span>
+                        <span class="lang-en">Validation tests show evapotranspiration (ETo) prediction accuracy of 88% (R²) and a mean squared error of 0.0408 compared to the reference software HYDRUS. In practice, this means potential water savings of around 30% and better crop protection against water stress.</span></p>
                     </div>
                 </div>
             </div>
@@ -1678,12 +1727,14 @@
     <section class="section-light section-padding" id="about">
         <div class="container">
             <div class="text-center">
-                <span class="badge">L'équipe</span>
+                <span class="badge"><span class="lang-fr">L'équipe</span><span class="lang-en">The team</span></span>
                 <h2 class="section-title">
-                    À propos de <span class="highlight">l'auteur</span>
+                    <span class="lang-fr">À propos de <span class="highlight">l'auteur</span></span>
+                    <span class="lang-en">About <span class="highlight">the author</span></span>
                 </h2>
                 <p class="section-sub mx-auto" style="max-width:700px;">
-                    Découvrez le parcours et l'encadrement derrière AquaTwin·Drip.
+                    <span class="lang-fr">Découvrez le parcours et l'encadrement derrière AquaTwin·Drip.</span>
+                    <span class="lang-en">Discover the background and supervision behind AquaTwin·Drip.</span>
                 </p>
             </div>
 
@@ -1696,20 +1747,22 @@
                     <div class="about-text">
                         <div class="name">Alexandre L. DAHOUE</div>
                         <div class="title">
-                            Élève-Ingénieur · Modélisation et Simulation Numérique
+                            <span class="lang-fr">Élève-Ingénieur · Modélisation et Simulation Numérique</span>
+                            <span class="lang-en">Engineering Student · Mathematical Modeling & Numerical Simulation</span>
                             <span class="badge-small">ENSGMM</span>
                         </div>
                         <div class="bio">
-                            Ce projet de recherche a été réalisé dans le cadre de son <strong>mémoire d'ingénieur de conception</strong> à l'École Nationale Supérieure de Génie Mathématique et Modélisation (UNSTIM, Bénin). L'objectif : combler le vide méthodologique dans la gestion de l'irrigation goutte-à-goutte en Afrique subsaharienne en couplant modèles physiques et intelligence artificielle frugale.
+                            <span class="lang-fr">Ce projet de recherche a été réalisé dans le cadre de son <strong>mémoire d'ingénieur de conception</strong> à l'École Nationale Supérieure de Génie Mathématique et Modélisation (UNSTIM, Bénin). L'objectif : combler le vide méthodologique dans la gestion de l'irrigation goutte-à-goutte en Afrique subsaharienne en couplant modèles physiques et intelligence artificielle frugale.</span>
+                            <span class="lang-en">This research project was carried out as part of his <strong>engineering thesis</strong> at the National School of Mathematical Engineering and Modeling (UNSTIM, Benin). The goal: to fill the methodological gap in drip irrigation management in sub-Saharan Africa by coupling physical models and frugal artificial intelligence.</span>
                         </div>
                         <div class="supervisors">
-                            <span><i class="fas fa-user-graduate"></i> Sous la supervision du <strong style="color:var(--color-white);">Dr Emile Codjo AGBANGBA</strong></span>
-                            <span><i class="fas fa-user-graduate"></i> Encadré par <strong style="color:var(--color-white);">Dr Jamal ADETOLA</strong></span>
-                            <span><i class="fas fa-calendar-alt"></i> Promotion 2025-2026</span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="lang-fr">Sous la supervision du</span><span class="lang-en">Supervised by</span> <strong style="color:var(--color-white);">Dr Emile Codjo AGBANGBA</strong></span>
+                            <span><i class="fas fa-user-graduate"></i> <span class="lang-fr">Encadré par</span><span class="lang-en">Advised by</span> <strong style="color:var(--color-white);">Dr Jamal ADETOLA</strong></span>
+                            <span><i class="fas fa-calendar-alt"></i> <span class="lang-fr">Promotion 2025-2026</span><span class="lang-en">Class of 2025-2026</span></span>
                         </div>
                         <div class="contact-links">
                             <a href="mailto:alexandre.dahoue@ensgmm.bj"><i class="fas fa-envelope"></i> alexandre.dahoue@ensgmm.bj</a>
-                            <a href="https://github.com/Alex542277/Mes_projets_de_recherche/blob/main/Memoire_d_ingenieur_Alexandre_Dahoue____.pdf" target="_blank"><i class="fas fa-graduation-cap"></i> Mémoire complet</a>
+                            <a href="https://github.com/Alex542277/Mes_projets_de_recherche/blob/main/Memoire_d_ingenieur_Alexandre_Dahoue____.pdf" target="_blank"><i class="fas fa-graduation-cap"></i> <span class="lang-fr">Mémoire complet</span><span class="lang-en">Full thesis</span></a>
                             <a href="https://bj.linkedin.com/in/alex-dahoue-b7411536a" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                         </div>
                     </div>
@@ -1722,21 +1775,21 @@
     <section class="section-light section-padding" id="cta">
         <div class="container">
             <div class="text-center">
-                <span class="badge">Prêt à passer à l&rsquo;action</span>
+                <span class="badge"><span class="lang-fr">Prêt à passer à l&rsquo;action</span><span class="lang-en">Ready to take action</span></span>
                 <h2 class="section-title">
-                    Et si vous <span class="highlight">voyiez</span> sous votre sol ?
+                    <span class="lang-fr">Et si vous <span class="highlight">voyiez</span> sous votre sol ?</span>
+                    <span class="lang-en">What if you <span class="highlight">saw</span> under your soil?</span>
                 </h2>
                 <p class="section-sub mx-auto" style="max-width:560px;">
-                    AquaTwin·Drip est conçu pour les agriculteurs, les ingénieurs et les décideurs
-                    qui veulent irriguer avec précision, sans capteurs coûteux.
+                    <span class="lang-fr">AquaTwin·Drip est conçu pour les agriculteurs, les ingénieurs et les décideurs qui veulent irriguer avec précision, sans capteurs coûteux.</span>
+                    <span class="lang-en">AquaTwin·Drip is designed for farmers, engineers and decision-makers who want precise irrigation without costly sensors.</span>
                 </p>
                 <div class="hero-actions" style="justify-content:center; margin-top:40px;">
-                    <!-- Téléchargement direct de l'APK -->
                     <a href="aquatwin-drip.apk" download class="btn-primary">
-                        <i class="fas fa-download"></i> Télécharger l&rsquo;application
+                        <i class="fas fa-download"></i> <span class="lang-fr">Télécharger l&rsquo;application</span><span class="lang-en">Download the app</span>
                     </a>
                     <a href="#how" class="btn-secondary">
-                        <i class="fas fa-play-circle"></i> En savoir plus
+                        <i class="fas fa-play-circle"></i> <span class="lang-fr">En savoir plus</span><span class="lang-en">Learn more</span>
                     </a>
                 </div>
             </div>
@@ -1747,13 +1800,14 @@
     <footer class="footer">
         <div class="container">
             <p style="opacity:0.5; font-size:0.75rem; font-weight:600; letter-spacing:0.04em;">
-                AquaTwin·Drip — Jumeau numérique hybride pour l&rsquo;irrigation goutte-à-goutte
+                AquaTwin·Drip — <span class="lang-fr">Jumeau numérique hybride pour l&rsquo;irrigation goutte-à-goutte</span><span class="lang-en">Hybrid digital twin for drip irrigation</span>
             </p>
             <p style="opacity:0.3; font-size:0.7rem; margin-top:4px; font-weight:500; letter-spacing:0.02em;">
-                <i class="fas fa-database" style="margin-right:6px;"></i> Données : Open-Meteo · SoilGrids · NASA POWER
+                <i class="fas fa-database" style="margin-right:6px;"></i> <span class="lang-fr">Données</span><span class="lang-en">Data</span> : Open-Meteo · SoilGrids · NASA POWER
             </p>
             <p style="opacity:0.4; font-size:0.7rem; margin-top:12px; font-weight:500; letter-spacing:0.02em;">
-                Développée avec <span style="color:#ff6b6b;">🧡</span> par
+                <span class="lang-fr">Développée avec</span><span class="lang-en">Built with</span> <span style="color:#ff6b6b;">🧡</span>
+                <span class="lang-fr">par</span><span class="lang-en">by</span>
                 <a href="https://www.google.com/search?q=parfait+botchi" target="_blank" style="color:var(--color-cyan); transition:opacity 0.3s;">
                     Parfait BOTCHI
                 </a>
@@ -1766,6 +1820,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Langue toggle
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = 'fr';
+
+            langToggle.addEventListener('click', function() {
+                if (currentLang === 'fr') {
+                    document.body.classList.add('lang-en');
+                    langToggle.textContent = 'FR';
+                    currentLang = 'en';
+                } else {
+                    document.body.classList.remove('lang-en');
+                    langToggle.textContent = 'EN';
+                    currentLang = 'fr';
+                }
+            });
+
             // Mobile toggle
             const toggle = document.getElementById('mobileToggle');
             const nav = document.getElementById('nav');
@@ -1951,7 +2021,6 @@
                 const question = item.querySelector('.faq-question');
                 question.addEventListener('click', function() {
                     const isActive = item.classList.contains('active');
-                    // Ferme tous les items
                     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
                     if (!isActive) {
                         item.classList.add('active');
