@@ -26,5 +26,5 @@
 ##  Auteur
 
 **Alexandre L. DAHOUE** — Élève-Ingénieur ENSGMM · Bénin  
-[Email](mailto:alexandre.dahoue@ensgmm.bj) · [LinkedIn](https://bj.linkedin.com/in/alex-dahoue-b7411536a)
+ [LinkedIn](https://bj.linkedin.com/in/alex-dahoue-b7411536a)
 
