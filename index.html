@@ -156,10 +156,10 @@
         }
 
         /* ----- LANGUE ----- */
-        .lang-fr {
+        span.lang-fr {
             display: inline;
         }
-        .lang-en {
+        span.lang-en {
             display: none;
         }
         body.lang-en .lang-fr {
@@ -169,91 +169,141 @@
             display: inline;
         }
 
-        /* ----- NAV ----- */
+        /* ----- NAV : goutte-à-goutte ----- */
         .nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 16px 0;
-            transition: background 0.4s, padding 0.4s, box-shadow 0.4s;
-            background: transparent;
+            padding: 20px 24px 0;
+            transition: padding 0.4s;
             pointer-events: none;
         }
-        .nav.scrolled {
-            background: rgba(11, 14, 12, 0.85);
-            backdrop-filter: blur(16px) saturate(1.4);
-            padding: 10px 0;
-            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
-            pointer-events: auto;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
         .nav-inner {
-            display: flex;
+            pointer-events: auto;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
             align-items: center;
-            justify-content: space-between;
-            max-width: 1200px;
+            gap: 12px;
+            max-width: 1160px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 9px 10px 9px 22px;
+            border-radius: 100px;
+            background: rgba(15, 21, 18, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px) saturate(1.3);
+            transition: background 0.4s, box-shadow 0.4s, border-color 0.4s;
+        }
+        .nav.scrolled .nav-inner {
+            background: rgba(13, 17, 15, 0.85);
+            border-color: rgba(255, 255, 255, 0.12);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
         }
         .nav-logo {
             font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.5rem;
+            font-weight: 500;
+            font-size: 1.2rem;
             letter-spacing: -0.01em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 9px;
+            flex-shrink: 0;
+            color: var(--color-text);
         }
-        .nav-logo span {
-            color: var(--color-cyan);
+        .nav-logo-drop {
+            position: relative;
+            width: 15px;
+            height: 19px;
+            flex-shrink: 0;
+        }
+        .nav-logo-drop svg {
+            position: relative;
+            z-index: 2;
+        }
+        .nav-logo-drip {
+            position: absolute;
+            left: 50%;
+            top: 17px;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--color-cyan);
+            transform: translateX(-50%);
+            animation: nav-drip 2.6s cubic-bezier(0.55, 0, 1, 0.45) infinite;
+            opacity: 0;
+        }
+        @keyframes nav-drip {
+            0% { opacity: 0; top: 16px; }
+            8% { opacity: 1; }
+            55% { opacity: 1; top: 31px; }
+            62% { opacity: 0; }
+            100% { opacity: 0; top: 16px; }
         }
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 24px;
+            justify-content: center;
+            gap: 26px;
             list-style: none;
-            font-size: 0.9rem;
-            font-weight: 600;
+            font-size: 0.88rem;
+            font-weight: 500;
         }
         .nav-links a {
             color: var(--color-text-secondary);
-            transition: color 0.3s;
-            position: relative;
+            transition: color 0.25s;
+            white-space: nowrap;
         }
         .nav-links a:hover {
-            color: var(--color-white);
+            color: var(--color-gold);
+        }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-left: 14px;
         }
         .lang-toggle {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 100px;
-            padding: 4px 12px;
-            font-size: 0.7rem;
+            padding: 3px;
+            font-size: 0.72rem;
             font-weight: 600;
-            color: var(--color-text-secondary);
             cursor: pointer;
-            transition: all 0.3s;
+            user-select: none;
             font-family: var(--font-body);
-            letter-spacing: 0.04em;
         }
-        .lang-toggle:hover {
-            background: rgba(255, 255, 255, 0.12);
+        .lang-toggle span {
+            padding: 6px 11px;
+            border-radius: 100px;
+            color: var(--color-text-secondary);
+            transition: 0.25s;
+        }
+        .lang-toggle span.active {
+            background: rgba(255, 255, 255, 0.1);
             color: var(--color-white);
         }
         .nav-cta {
-            background: var(--color-cyan);
+            position: relative;
+            background: linear-gradient(135deg, var(--color-green-bright), var(--color-cyan));
             color: var(--color-bg) !important;
-            padding: 8px 24px;
-            border-radius: 100px;
             font-weight: 700;
-            transition: background 0.3s, transform 0.2s;
+            font-size: 0.86rem;
+            padding: 11px 24px 11px 22px;
+            border-radius: 50px 50px 50px 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 6px 20px -6px rgba(60, 219, 154, 0.5);
         }
         .nav-cta:hover {
-            background: var(--color-green-bright);
-            transform: scale(1.04);
+            background: linear-gradient(135deg, var(--color-green-bright), var(--color-cyan));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px -6px rgba(60, 219, 154, 0.65);
         }
+
         .nav-mobile-toggle {
             display: none;
             flex-direction: column;
@@ -262,14 +312,73 @@
             border: none;
             cursor: pointer;
             padding: 4px;
+            margin-left: 10px;
+            flex-shrink: 0;
         }
         .nav-mobile-toggle span {
             display: block;
-            width: 24px;
+            width: 20px;
             height: 2px;
             background: var(--color-white);
             border-radius: 2px;
             transition: 0.3s;
+        }
+        .nav-mobile-toggle.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .nav-mobile-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-mobile-toggle.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ----- Menu mobile déroulant ----- */
+        .nav-mobile-panel {
+            pointer-events: auto;
+            max-width: 1160px;
+            margin: 10px auto 0;
+            border-radius: 20px;
+            background: rgba(13, 17, 15, 0.92);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+        }
+        .nav-mobile-panel.open {
+            max-height: 480px;
+            opacity: 1;
+            padding: 8px 0;
+        }
+        .nav-mobile-panel ul {
+            list-style: none;
+        }
+        .nav-mobile-panel a {
+            display: block;
+            padding: 14px 26px;
+            color: var(--color-text-secondary);
+            font-size: 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: color 0.25s;
+        }
+        .nav-mobile-panel li:last-child a {
+            border-bottom: none;
+        }
+        .nav-mobile-panel a:hover {
+            color: var(--color-gold);
+        }
+        .nav-mobile-cta {
+            margin: 14px 26px 6px;
+            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, var(--color-green-bright), var(--color-cyan));
+            color: var(--color-bg) !important;
+            font-weight: 700;
+            padding: 13px 20px;
+            border-radius: 100px;
         }
 
         /* ----- HERO ----- */
@@ -1081,8 +1190,14 @@
             .nav-links {
                 display: none;
             }
+            .nav-right .lang-toggle {
+                display: none;
+            }
             .nav-mobile-toggle {
                 display: flex;
+            }
+            .nav-cta {
+                display: none;
             }
             .hero {
                 padding: 100px 0 40px;
@@ -1275,7 +1390,19 @@
     <nav class="nav" id="nav">
         <div class="nav-inner">
             <div class="nav-logo">
-                <span>✦</span> AquaTwin·Drip
+                <span class="nav-logo-drop">
+                    <svg width="15" height="19" viewBox="0 0 16 20" fill="none">
+                        <path d="M8 1C8 1 1.5 9.5 1.5 13.5C1.5 17.09 4.41 20 8 20C11.59 20 14.5 17.09 14.5 13.5C14.5 9.5 8 1 8 1Z" fill="url(#navDropGrad)"/>
+                        <defs>
+                            <linearGradient id="navDropGrad" x1="1.5" y1="1" x2="14.5" y2="20" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#3cdb9a"/>
+                                <stop offset="1" stop-color="#40d4c0"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span class="nav-logo-drip"></span>
+                </span>
+                AquaTwin·Drip
             </div>
             <ul class="nav-links">
                 <li><a href="#problem"><span class="lang-fr">Problème</span><span class="lang-en">Challenge</span></a></li>
@@ -1284,12 +1411,30 @@
                 <li><a href="#results"><span class="lang-fr">Résultats</span><span class="lang-en">Results</span></a></li>
                 <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
                 <li><a href="#about"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
-                <li><a href="#cta" class="nav-cta"><span class="lang-fr">Essayer</span><span class="lang-en">Try it</span></a></li>
-                <li><button class="lang-toggle" id="langToggle">EN</button></li>
             </ul>
-            <button class="nav-mobile-toggle" aria-label="Menu" id="mobileToggle">
+            <div class="nav-right">
+                <div class="lang-toggle" id="langToggle">
+                    <span class="active" data-l="fr">FR</span><span data-l="en">EN</span>
+                </div>
+                <a href="#cta" class="nav-cta"><span class="lang-fr">Essayer</span><span class="lang-en">Try it</span></a>
+            </div>
+            <button class="nav-mobile-toggle" aria-label="Menu" aria-expanded="false" id="mobileToggle">
                 <span></span><span></span><span></span>
             </button>
+        </div>
+        <div class="nav-mobile-panel" id="mobilePanel">
+            <ul>
+                <li><a href="#problem"><span class="lang-fr">Problème</span><span class="lang-en">Challenge</span></a></li>
+                <li><a href="#how"><span class="lang-fr">Fonctionnement</span><span class="lang-en">How it works</span></a></li>
+                <li><a href="#app"><span class="lang-fr">Application</span><span class="lang-en">App</span></a></li>
+                <li><a href="#results"><span class="lang-fr">Résultats</span><span class="lang-en">Results</span></a></li>
+                <li><a href="#faq"><span class="lang-fr">FAQ</span><span class="lang-en">FAQ</span></a></li>
+                <li><a href="#about"><span class="lang-fr">À propos</span><span class="lang-en">About</span></a></li>
+            </ul>
+            <a href="#cta" class="nav-mobile-cta"><span class="lang-fr">Essayer</span><span class="lang-en">Try it</span></a>
+            <div class="lang-toggle" id="langToggleMobile" style="margin:4px 26px 10px;">
+                <span class="active" data-l="fr">FR</span><span data-l="en">EN</span>
+            </div>
         </div>
     </nav>
 
@@ -1820,55 +1965,41 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Langue toggle
-            const langToggle = document.getElementById('langToggle');
+            // Langue toggle (segmented FR / EN, desktop + mobile)
             let currentLang = 'fr';
-
-            langToggle.addEventListener('click', function() {
-                if (currentLang === 'fr') {
-                    document.body.classList.add('lang-en');
-                    langToggle.textContent = 'FR';
-                    currentLang = 'en';
-                } else {
-                    document.body.classList.remove('lang-en');
-                    langToggle.textContent = 'EN';
-                    currentLang = 'fr';
-                }
+            function setLang(lang) {
+                currentLang = lang;
+                document.body.classList.toggle('lang-en', lang === 'en');
+                document.querySelectorAll('.lang-toggle').forEach(function (el) {
+                    el.querySelectorAll('span').forEach(function (s) {
+                        s.classList.toggle('active', s.dataset.l === lang);
+                    });
+                });
+            }
+            document.querySelectorAll('.lang-toggle').forEach(function (toggle) {
+                toggle.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const target = e.target.closest('span[data-l]');
+                    if (!target) return;
+                    setLang(target.dataset.l);
+                });
             });
 
-            // Mobile toggle
-            const toggle = document.getElementById('mobileToggle');
-            const nav = document.getElementById('nav');
-            const navLinks = nav.querySelector('.nav-links');
-            let mobileOpen = false;
-            if (toggle) {
-                toggle.addEventListener('click', function() {
-                    mobileOpen = !mobileOpen;
-                    if (mobileOpen) {
-                        navLinks.style.display = 'flex';
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.position = 'absolute';
-                        navLinks.style.top = '100%';
-                        navLinks.style.left = '0';
-                        navLinks.style.width = '100%';
-                        navLinks.style.background = 'rgba(11,14,12,0.96)';
-                        navLinks.style.backdropFilter = 'blur(16px)';
-                        navLinks.style.padding = '24px';
-                        navLinks.style.gap = '16px';
-                        navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.04)';
-                    } else {
-                        navLinks.style.display = '';
-                        navLinks.style.flexDirection = '';
-                        navLinks.style.position = '';
-                        navLinks.style.top = '';
-                        navLinks.style.left = '';
-                        navLinks.style.width = '';
-                        navLinks.style.background = '';
-                        navLinks.style.backdropFilter = '';
-                        navLinks.style.padding = '';
-                        navLinks.style.gap = '';
-                        navLinks.style.borderBottom = '';
-                    }
+            // Menu mobile
+            const mobileToggle = document.getElementById('mobileToggle');
+            const mobilePanel = document.getElementById('mobilePanel');
+            if (mobileToggle && mobilePanel) {
+                mobileToggle.addEventListener('click', function () {
+                    const open = mobilePanel.classList.toggle('open');
+                    mobileToggle.classList.toggle('open', open);
+                    mobileToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                });
+                mobilePanel.querySelectorAll('a').forEach(function (a) {
+                    a.addEventListener('click', function () {
+                        mobilePanel.classList.remove('open');
+                        mobileToggle.classList.remove('open');
+                        mobileToggle.setAttribute('aria-expanded', 'false');
+                    });
                 });
             }
 
@@ -2019,7 +2150,8 @@
             // FAQ accordion
             document.querySelectorAll('.faq-item').forEach(item => {
                 const question = item.querySelector('.faq-question');
-                question.addEventListener('click', function() {
+                question.addEventListener('click', function(e) {
+                    e.stopPropagation();
                     const isActive = item.classList.contains('active');
                     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
                     if (!isActive) {
@@ -2037,7 +2169,11 @@
                         const offset = 80;
                         const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
                         window.scrollTo({ top, behavior: 'smooth' });
-                        if (mobileOpen && toggle) toggle.click();
+                        if (mobilePanel && mobilePanel.classList.contains('open')) {
+                            mobilePanel.classList.remove('open');
+                            mobileToggle.classList.remove('open');
+                            mobileToggle.setAttribute('aria-expanded', 'false');
+                        }
                     }
                 });
             });
