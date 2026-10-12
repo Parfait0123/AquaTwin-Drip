@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <title>AquaTwin-Drip — Voir sous le sol pour irriguer juste</title>
-    
+    <title>AquaTwin-Drip — Voir sous le sol pour irriguer juste</title>
 
-<link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-    
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
 
-<!-- ===== META TAGS POUR RÉSEAUX SOCIAUX & SEO ===== -->
+    <!-- ===== META TAGS POUR RÉSEAUX SOCIAUX & SEO ===== -->
 
-<!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
- <meta property="og:title" content="L'agriculture durable en Afrique a son jumeau numérique." />   
-<meta property="og:title" content="AquaTwin·Drip — Voir sous le sol pour irriguer juste" />
-<meta property="og:description" content="AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d'irrigation précises — sans capteurs coûteux." />
-<meta property="og:image" content="https://aqua-twin-drip.vercel.app/images/hero-drip-irrigation.png" />
-<meta property="og:url" content="https://aqua-twin-drip.vercel.app/" />
-<meta property="og:type" content="website" />
-<meta property="og:locale" content="fr_FR" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+    <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:title" content="AquaTwin·Drip — Voir sous le sol pour irriguer juste" />
+    <meta property="og:description" content="AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d'irrigation précises — sans capteurs coûteux." />
+    <meta property="og:image" content="https://aqua-twin-drip.vercel.app/images/hero-drip-irrigation.png" />
+    <meta property="og:url" content="https://aqua-twin-drip.vercel.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
-<!-- Twitter Card (X) -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="AquaTwin·Drip — Voir sous le sol pour irriguer juste" />
-<meta name="twitter:description" content="AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d'irrigation précises — sans capteurs coûteux." />
-<meta name="twitter:image" content="https://aqua-twin-drip.vercel.app/images/hero-drip-irrigation.png" />
+    <!-- Twitter Card (X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AquaTwin·Drip — Voir sous le sol pour irriguer juste" />
+    <meta name="twitter:description" content="AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d'irrigation précises — sans capteurs coûteux." />
+    <meta name="twitter:image" content="https://aqua-twin-drip.vercel.app/images/hero-drip-irrigation.png" />
 
-<!-- Description pour les moteurs de recherche (Google) -->
-<meta name="description" content="AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d'irrigation précises — sans capteurs coûteux." />
-
+    <!-- Description pour les moteurs de recherche (Google) -->
+    <meta name="description" content="AquaTwin·Drip transforme les données du sol, du climat et des cultures en décisions d'irrigation précises — sans capteurs coûteux." />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -1149,6 +1145,46 @@
             margin-top: 40px;
         }
 
+        /* ----- VIDÉO DE DÉMONSTRATION ----- */
+        .demo-video-wrapper {
+            max-width: 880px;
+            margin: 48px auto 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: rgba(26, 37, 32, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: var(--shadow);
+            transition: border-color 0.4s, transform 0.3s, box-shadow 0.4s;
+        }
+        .demo-video-wrapper:hover {
+            border-color: rgba(64, 212, 192, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 30px 70px -12px rgba(0, 0, 0, 0.7), 0 0 40px rgba(64, 212, 192, 0.06);
+        }
+        .demo-video {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #0b0e0c;
+            object-fit: cover;
+        }
+        .demo-video-caption {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .demo-video-caption i {
+            color: var(--color-cyan);
+            font-size: 1rem;
+        }
+
         /* ----- FOOTER ----- */
         .footer {
             background: rgba(11, 14, 12, 0.7);
@@ -1326,6 +1362,14 @@
             }
             .faq-answer p {
                 font-size: 0.9rem;
+            }
+            .demo-video-wrapper {
+                margin-top: 32px;
+                border-radius: var(--radius-sm);
+            }
+            .demo-video-caption {
+                font-size: 0.78rem;
+                padding: 12px 16px;
             }
         }
         @media (max-width: 480px) {
@@ -1956,6 +2000,28 @@
                     <span class="lang-fr">AquaTwin·Drip est conçu pour les agriculteurs, les ingénieurs et les décideurs qui veulent irriguer avec précision, sans capteurs coûteux.</span>
                     <span class="lang-en">AquaTwin·Drip is designed for farmers, engineers and decision-makers who want precise irrigation without costly sensors.</span>
                 </p>
+
+                <!-- ===== VIDÉO DE DÉMONSTRATION ===== -->
+                <div class="demo-video-wrapper">
+                    <video
+                        class="demo-video"
+                        controls
+                        playsinline
+                        preload="metadata"
+                        poster="images/video-demo-poster.png"
+                    >
+                        <source src="videos/aquatwin-drip-demo.mp4" type="video/mp4" />
+                        <source src="videos/aquatwin-drip-demo.webm" type="video/webm" />
+                        <span class="lang-fr">Votre navigateur ne supporte pas la lecture vidéo. <a href="videos/aquatwin-drip-demo.mp4">Télécharger la vidéo</a>.</span>
+                        <span class="lang-en">Your browser does not support video playback. <a href="videos/aquatwin-drip-demo.mp4">Download the video</a>.</span>
+                    </video>
+                    <p class="demo-video-caption">
+                        <i class="fas fa-circle-play"></i>
+                        <span class="lang-fr">Démonstration — du champ à la décision d&rsquo;irrigation</span>
+                        <span class="lang-en">Demo — from field to irrigation decision</span>
+                    </p>
+                </div>
+
                 <div class="hero-actions" style="justify-content:center; margin-top:40px;">
                     <a href="aquatwin-drip.apk" download class="btn-primary">
                         <i class="fas fa-download"></i> <span class="lang-fr">Télécharger l&rsquo;application</span><span class="lang-en">Download the app</span>
@@ -2114,8 +2180,7 @@
                             trigger: '#hero',
                             start: 'top 80%',
                             end: 'top 20%',
-                            scrub: 1
-                        }
+                            scrub: 1                        }
                     });
                 }
 
@@ -2127,7 +2192,7 @@
                         rotateX: 0,
                         duration: 1.2,
                         scrollTrigger: {
-                            trigger: '.app-section',
+                            trigger: '#app',
                             start: 'top 75%',
                             end: 'top 25%',
                             scrub: 1
@@ -2164,9 +2229,26 @@
                     });
                 }
 
+                // Animation d'apparition de la vidéo
+                const demoVideo = document.querySelector('.demo-video-wrapper');
+                if (demoVideo) {
+                    gsap.fromTo(demoVideo, { opacity: 0, y: 40, scale: 0.96 }, {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.9,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: demoVideo,
+                            start: 'top 88%',
+                            toggleActions: 'play none none none'
+                        }
+                    });
+                }
+
             } else {
                 document.querySelectorAll(
-                        '.step-card, .result-card, .scenario-card, .stat-card, .invisible-step, .about-card, .faq-item'
+                        '.step-card, .result-card, .scenario-card, .stat-card, .invisible-step, .about-card, .faq-item, .demo-video-wrapper'
                         )
                     .forEach(el => {
                         el.style.opacity = '1';
